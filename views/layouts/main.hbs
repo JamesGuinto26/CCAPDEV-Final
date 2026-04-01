@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/images/LOGO.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
+    
+    <title>{{ title }} - EATSTAGRAM</title>
+
+    {{#if isLoggedIn}}
+        <link rel="stylesheet" href="/styling/navbar-loggedin.css">
+    {{else}}
+        <link rel="stylesheet" href="/styling/navbar-guest.css"> <!-- chnage css to sign up nav -->
+    {{/if}}
+
+    {{#if extraCSS}}
+        <link rel="stylesheet" href="/styling/{{ extraCSS }}">
+    {{/if}}
+
+    {{#if extraCSS2}}
+        <link rel="stylesheet" href="/styling/{{ extraCSS2 }}">
+    {{/if}}
+
+</head>
+<body>
+
+    {{#if isLoggedIn}}
+        {{> navbar-loggedin}}
+    {{else}}
+        {{> navbar-guest}} <!-- chnage css to sign up nav -->
+    {{/if}}
+
+    {{{ body }}}
+
+    {{#if extraJS}}
+        <script src="/js/{{ extraJS }}"></script>
+    {{/if}}
+
+</body>
+</html>
+
