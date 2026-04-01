@@ -1,0 +1,213 @@
+.profile-container {
+    position: relative;
+    min-height: 100vh;
+    padding: 160px 20px 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-container::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image: url('/images/resto.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: blur(8px);
+    z-index: -2;
+}
+
+.profile-container::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.profile-card-wrapper {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.profile-card {
+    display: flex;
+    gap: 70px;
+    background-color: rgb(112, 100, 83);
+    color: white;
+    padding: 40px;
+    border-radius: 25px;
+    align-items: center;
+}
+
+.profile-avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid white;
+}
+
+.profile-image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.edit-btn {
+    background: #e6e6e6;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #3D211A;
+    border: 2px solid #3D211A;
+}
+
+.edit-btn:hover {
+    background: #3D211A;
+    color: white;
+    border: 2px solid white;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.username {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.email {
+    margin-bottom: 15px;
+}
+
+.contactNum {
+    margin-bottom: 15px;
+}
+
+.joinDate {
+    margin-bottom: 15px;
+}
+
+.description {
+    line-height: 1.6;
+}
+
+.profile-actions {
+    margin: 30px 0;
+    display: flex;
+    gap: 20px;
+}
+
+.action-btn {
+    background: #e6e6e6;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #3D211A;
+    border: 3px solid #3D211A;
+}
+
+.action-btn:hover {
+    background: #3D211A;
+    color: white;
+    border: 2px solid white;
+}
+
+
+.panel {
+    background: rgb(92, 82, 68);
+    padding: 30px;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.see-more {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.see-more:hover {
+    text-decoration: underline;
+}
+
+.post-card {
+    background: white;
+    color: black;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+/* Adjust spacing if needed */
+
+.delete-form {
+    display: inline;
+}
+
+.empty-msg {
+    color: #ddd;
+}
+
+.review-media {
+    max-width: 50%;
+    max-height: 120px;
+    margin: 5px 0;
+    border-radius: 8px;
+}
+.media-container {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.review-title, .review-for-resto {
+    color: #3D211A;
+}
+
+.stars {
+    color: gold;
+    font-size: 20px;
+}
+
+.review-for {
+    font-size: 18px;
+}
+
+.review-media-img {
+    max-width: 200px;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.review-media-video {
+    max-width: 200px;
+    max-height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.edited-label {
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
+    margin-left: 4px;
+}

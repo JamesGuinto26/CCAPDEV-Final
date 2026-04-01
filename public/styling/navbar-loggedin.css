@@ -1,0 +1,143 @@
+/* NAVBAR */
+
+* {
+    font-family: Verdana;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #b6a488;
+    padding: 25px 40px;
+    z-index: 1000;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between image and text */
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 60px;  /* adjust size as needed */
+    height: 60px;
+    object-fit: contain;
+}
+
+.logo-text {
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    font-family: "Birthstone", cursive;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 15px;
+    color: #3D211A;
+    border-radius: 50px;
+}
+
+.profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border-style: solid;
+    border-color: rgb(26, 55, 134);
+    border-width: 2px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background-color: white;
+    border-radius: 10px;
+    min-width: 180px;
+    list-style: none;
+    padding: 8px 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+    opacity: 0%;
+    visibility: hidden;
+    transform: translate(10px);
+    transition: 0.2s ease;
+    z-index: 999;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0);
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: #3D211A;
+    font-size: 15px;
+    border-radius: 0;
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(107, 100, 78, 0.1);
+}
+
+.dropdown-pfp {
+    position: relative;   
+    list-style: none;
+}
+
+.dropdown-pfp img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #3D211A;
+}
+
+.dropdown-pfp:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-pfp .dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: #3D211A;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown-pfp .dropdown-menu li a:hover {
+    background-color: rgba(107, 100, 78, 0.1);
+}

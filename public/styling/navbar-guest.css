@@ -1,0 +1,86 @@
+* {
+    font-family: Verdana;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-bar {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #91816c;
+    padding: 20px 70px;
+    z-index: 1;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 60px;  
+    height: 60px;
+    object-fit: contain;
+}
+
+.logo-text {
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    font-family: "Birthstone", cursive;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 50px;
+}
+
+.nav-links .login-btn {
+    color: white;
+    background-color: rgb(88, 67, 47);
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    border-width: 2px;
+}
+
+.nav-links .signup-btn {
+    color: white;
+    background-color: rgb(88, 67, 47);
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    border-width: 2px;
+}
+
+.nav-links .login-btn:hover {
+    background-color: #3D211A;
+    color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 255, 255);
+}
+
+.nav-links .signup-btn:hover {
+    background-color: #3D211A;
+    color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 255, 255);
+}

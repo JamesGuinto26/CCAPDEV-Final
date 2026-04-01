@@ -1,0 +1,203 @@
+/* Start of Home */
+
+body {
+    background: #f3f4f6;
+}
+
+.home-banner {
+    margin-top: 80px;
+    height: 260px;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: url("/images/searchBG.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px);
+    transform: scale(1.05);
+    z-index: 0;
+}
+
+.home-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+}
+
+.home-overlay {
+    position: relative;
+    z-index: 2;
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.home-overlay h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.home-overlay p {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.discover-btn {
+    /*background-color: rgb(49, 103, 175);
+    */
+    background-color: rgb(133, 114, 90);
+    color: white;
+    padding: 12px 20px;  
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.discover-btn:hover {
+    background: white;
+    /*color: rgb(49, 103, 175);*/
+    color: rgb(88, 67, 47);
+}
+
+
+/* Start of Slider */
+
+.featured-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 40px 15px;
+}
+
+.featured-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.featured-header .see-all {
+    color: #3D211A;;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.featured-header .see-all:hover {
+    text-decoration: underline;
+}
+
+.featured-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 40px auto;
+}
+
+.slides {
+    display: flex;
+    gap: 25px;
+    transition: transform 0.4s ease;
+    padding: 0 60px;
+}
+
+.resto-card {
+    background-color: rgb(99, 87, 71);
+    /*background: rgb(44, 84, 136);*/
+    border-radius: 14px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    width: calc(100% / 3); /* Since 3 cards per slide */
+    display: none;
+}
+
+.resto-card.displaySlide {
+    display: block;
+}
+
+.resto-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.resto-info {
+    padding: 12px;
+}
+
+.resto-card h3 {
+    color: white;    
+    margin-bottom: 6px;
+}
+
+.resto-card p {
+    color: white; 
+    font-size: 14px;
+    padding: 10px;   
+    line-height: 1.5;
+}
+
+.next-btn, .prev-btn {
+    position: absolute;
+    top: 50%;
+    font-weight: bold;
+    transform: translateY(-50%);
+    background: rgb(99, 87, 71);
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.about-section {
+    background-color: rgb(88, 67, 47);
+    /*background: rgb(47, 81, 124);*/
+    padding: 60px 40px;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 120px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.about-image img {
+    width: 450px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.about-text h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: white;
+}

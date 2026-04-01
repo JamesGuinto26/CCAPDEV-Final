@@ -1,0 +1,276 @@
+/* Reset & Body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: url("/images/resto.webp") no-repeat center center/cover;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: inherit;
+    filter: blur(12px);
+    transform: scale(1.1);
+    z-index: -1;
+}
+
+/* Container */
+.resto-container {
+    width: 70%;
+    max-width: 900px;
+    margin: 120px auto 60px auto;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    background: white;
+    padding: 25px;
+}
+
+/* Review Card */
+.review-card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 20px 25px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.review-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.review-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.review-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgb(88, 67, 47);
+}
+
+.review-user-info h4 {
+    margin-bottom: 4px;
+    font-size: 16px;
+    color: rgb(88, 67, 47);
+}
+
+.review-meta {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    color: #777;
+    align-items: center;
+}
+
+.stars {
+    color: gold;
+    font-size: 18px;
+}
+
+.review-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(88, 67, 47);
+    margin-bottom: 10px;
+}
+
+.review-comment {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.review-media {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.review-media-img,
+.review-media-video {
+    width: calc(50% - 6px);
+    border-radius: 12px;
+    object-fit: cover;
+    max-height: 180px;
+}
+
+/* Review Actions */
+.review-actions a {
+    background-color: #1565c0;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 8px;
+    transition: 0.2s ease;
+}
+
+.review-actions a:hover {
+    background-color: white;
+    color: rgb(34, 77, 133);
+    border: 2px solid rgb(34, 77, 133);
+}
+
+/* Review Footer */
+.review-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #777;
+    gap: 10px;
+}
+
+.review-footer .helpful {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.review-footer .helpful:hover {
+    color: #e91e63;
+}
+
+/* Comments Section */
+.comments-section {
+    margin-top: 20px;
+}
+
+.comment-card {
+    background: #f4f6f8;
+    padding: 12px 15px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.comment-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.comment-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgb(88, 67, 47);
+}
+
+.comment-username {
+    font-weight: 600;
+}
+
+.comment-date {
+    font-size: 12px;
+    color: #777;
+}
+
+.comment-text {
+    padding: 10px;
+    font-size: 14px;
+    color: #444;
+}
+
+/* No comments message */
+.no-comments {
+    text-align: center;
+    color: gray;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.add-comment-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.add-comment-form input {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.add-comment-form button {
+    padding: 8px 14px;
+    background-color: #1565c0;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-comment-form button:hover {
+    background-color: white;
+    color: #1565c0;
+    border: 2px solid #1565c0;
+}
+
+@media (max-width: 600px) {
+    .review-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .review-user-info h4 {
+        font-size: 14px;
+    }
+
+    .review-title {
+        font-size: 16px;
+    }
+
+    .review-comment {
+        font-size: 14px;
+    }
+
+    .review-media-img,
+    .review-media-video {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .resto-container {
+        width: 90%;
+    }
+}
+
+.edited-label {
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
+    margin-left: 4px;
+}
+
