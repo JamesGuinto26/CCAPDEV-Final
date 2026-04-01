@@ -9,7 +9,7 @@ const Restaurant = require('./schemas/Restaurant');
 const app = express();
 
 // connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/eatstagram')
+mongoose.connect(process.env.MONGO_URI)
 .then(async () => {
     console.log('Successfully connected to MongoDB');
 })
@@ -106,7 +106,7 @@ app.use((err, req, res, next) => {
 
 
 // create and start server
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is live at http://localhost:${PORT}`);
 }); 
