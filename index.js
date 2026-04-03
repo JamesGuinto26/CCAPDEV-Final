@@ -84,6 +84,7 @@ app.use('/', require('./routes/home'));
 app.use('/restaurants', require('./routes/restaurants'));
 app.use('/users', require('./routes/users'));
 app.use('/reviews', require('./routes/reviews'));
+app.use('/comments', require('./routes/comments'));
 
 // Error handling
 app.use((req, res) => {
