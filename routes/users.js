@@ -94,25 +94,26 @@ router.post('/signup', async (req, res) => {
 
         if (password !== confirmPassword) {
             return res.render('signup', {
-                error: 'Passwords do not match', title: 'Sign Up'
+                error: 'Passwords do not match', title: 'Sign Up',
+                extraCSS: 'signup.css'
             });
         }
 
         if (!isValidEmail(email)) {
-            return res.render('signup', { error: 'Please enter a valid email address', title: 'Sign Up' });
+            return res.render('signup', { error: 'Please enter a valid email address', title: 'Sign Up', extraCSS: 'signup.css' });
         }
 
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.render('signup', {
-                error: 'Email already registered', title: 'Sign Up'
+                error: 'Email already registered', title: 'Sign Up', extraCSS: 'signup.css'
             });
         }
 
         const existingUsername = await User.findOne({ username });
         if (existingUsername) {
             return res.render('signup', { 
-                error: 'Username already taken', title: 'Sign Up' 
+                error: 'Username already taken', title: 'Sign Up', extraCSS: 'signup.css'
             });
         }
 
