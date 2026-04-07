@@ -84,7 +84,8 @@ router.get('/signup', (req, res) => {
 router.post('/signup', async (req, res) => {
     try {
         const { username, email, phoneNum, password, confirmPassword, description } = req.body;
-        let avatarPicture = req.files?.avatar;
+        //let avatarPicture = req.files?.avatar; commented out for demo purposes
+        let avatarPicture = null;
         let avatarDefault = '/images/profile.png';
 
         if (password !== confirmPassword) {
@@ -118,6 +119,7 @@ router.post('/signup', async (req, res) => {
             await avatarPicture.mv('.' + uploadPath);
         }
         */
+        /*
         if (avatarPicture) {
             const uploadDir = path.join(__dirname, '../public/uploads');
 
@@ -132,6 +134,8 @@ router.post('/signup', async (req, res) => {
 
             avatarDefault = `/uploads/${fileName}`;
         }
+        */ 
+        // disable for now for demo
 
         if (!req.body.terms) {
             return res.render('signup', { 
