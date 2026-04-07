@@ -165,12 +165,14 @@ router.post('/signup', async (req, res) => {
 
     } catch (err) {
         console.error("SIGNUP ERROR:", err);
-
+        /*
         res.render('signup', {
             error: 'Something went wrong. Please try again.',
             title: 'Sign Up',
             extraCSS: 'signup.css'
         });
+        */
+        res.status(500).send(err.stack);
     }
 });
 
