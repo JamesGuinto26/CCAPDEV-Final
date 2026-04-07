@@ -63,17 +63,9 @@
 
                 <div class="review-footer">
                     <div class="review-actions-bottom">
-                        <form action="/reviews/{{this._id}}/helpful?from={{#if showEdit}}my{{else}}user{{/if}}" method="POST">                            
-                            <button type="submit" class="helpful-btn {{#if this.isHelpful}}active{{/if}}">
-                                👍 Helpful ({{this.helpfulCount}})
-                            </button>
-                        </form>
-
-                        <form action="/reviews/{{this._id}}/unhelpful?from={{#if showEdit}}my{{else}}user{{/if}}" method="POST">                            
-                            <button type="submit" class="unhelpful-btn {{#if this.isUnhelpful}}active{{/if}}">
-                                👎 Unhelpful ({{this.unhelpfulCount}})
-                            </button>
-                        </form>
+                        <p class="helpful-count">
+                            👍 {{this.helpfulCount}} people found this helpful
+                        </p>
                     </div>
 
                     <a href="/reviews/{{this._id}}/comments" class="check-comments-btn">Check Comments</a>
