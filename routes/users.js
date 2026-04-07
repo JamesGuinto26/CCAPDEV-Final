@@ -209,7 +209,9 @@ router.get('/profile/:id', async (req, res) => {
             return res.redirect('/users/login');
         }
 
-        const otherUser = await User.findById(req.params.id).populate('managedRestaurants', 'name').lean();
+        const otherUser = await User.findById(req.params.id)
+            .populate('managedRestaurants', 'name')
+            .lean();
 
         if (!otherUser) return res.redirect('/');
 
@@ -218,22 +220,24 @@ router.get('/profile/:id', async (req, res) => {
         }
 
         const userReviews = await Review.find({ userId: otherUser._id })
-            .sort({ createdAt: -1 })
+            .sort({ reviewDate: -1 }) 
             .limit(2)
             .populate('restaurantId', 'name')
             .lean();
 
+        const currentUser = await User.findById(req.session.userId).lean();
+
         res.render('profilePage', {
             title: `${otherUser.username}'s Profile`,
-            profileUser: otherUser,         
-            currentUser: req.session.user,   
+            profileUser: otherUser,
+            currentUser, 
             userReviews,
             isLoggedIn: true,
             isUserAdmin: req.session.isAdmin,
             extraCSS: 'profilePage.css',
             showEdit: false,
             viewingOther: true,
-            navbarUser: req.session.user
+            navbarUser: currentUser
         });
 
     } catch (err) {
