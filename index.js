@@ -77,7 +77,13 @@ app.use((req, res, next) => {
 });
 
 // for file uploads
+/*
 app.use(fileUpload());
+*/
+app.use(fileUpload({
+    useTempFiles: true,
+    tempFileDir: '/tmp/'
+}));
 
 // Set up routes
 app.use('/', require('./routes/home')); 
