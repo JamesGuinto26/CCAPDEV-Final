@@ -5,8 +5,13 @@
         <div class="profile-card">
 
             <div class="profile-image-wrapper">
-                <img src="{{#if currentUser.image}}{{currentUser.image}}{{else}}/images/profile.png{{/if}}" 
-                     alt="Avatar" class="profile-avatar">
+                {{#if viewingOther}}
+                    <img src="{{#if profileUser.image}}{{profileUser.image}}{{else}}/images/profile.png{{/if}}" 
+                         alt="Avatar" class="profile-avatar">
+                {{else}}
+                    <img src="{{#if currentUser.image}}{{currentUser.image}}{{else}}/images/profile.png{{/if}}" 
+                         alt="Avatar" class="profile-avatar">
+                {{/if}}
 
                 {{#if showEdit}}
                     <a href="/users/edit-profile" class="edit-btn">Edit Profile</a>
@@ -14,26 +19,58 @@
             </div>
 
             <div class="profile-info">
-                <h2 class="username">{{currentUser.username}}</h2> <br>
-                <p class="email"><strong>Email:</strong> {{currentUser.email}}</p>
-                <p class="contactNum"><strong>Contact Number:</strong> {{currentUser.phoneNum}}</p>
-                <p class="joinDate"><strong>Join Date:</strong> {{formatDate currentUser.joinDate}}</p>
 
-                {{#if currentUser.isAdmin}}
-                    {{#if currentUser.managedRestaurantName}}
-                        <p class="managed-restaurant"><strong>Managed Restaurant:</strong> {{currentUser.managedRestaurantName}}</p>
+                {{#if viewingOther}}
+                    <h2 class="username">{{profileUser.username}}</h2> <br>
+                    <p class="email"><strong>Email:</strong> {{profileUser.email}}</p>
+                    <p class="contactNum"><strong>Contact Number:</strong> {{profileUser.phoneNum}}</p>
+                    <p class="joinDate"><strong>Join Date:</strong> {{formatDate profileUser.joinDate}}</p>
+
+                    {{#if profileUser.isAdmin}}
+                        {{#if profileUser.managedRestaurantName}}
+                            <p class="managed-restaurant">
+                                <strong>Managed Restaurant:</strong> {{profileUser.managedRestaurantName}}
+                            </p>
+                        {{/if}}
                     {{/if}}
+
+                    <br>
+
+                    <p class="description">
+                        <strong>Description:<br></strong>
+                        {{#if profileUser.description}}
+                            {{profileUser.description}}
+                        {{else}}
+                            No description added yet.
+                        {{/if}}
+                    </p>
+
+                {{else}}
+                    <h2 class="username">{{currentUser.username}}</h2> <br>
+                    <p class="email"><strong>Email:</strong> {{currentUser.email}}</p>
+                    <p class="contactNum"><strong>Contact Number:</strong> {{currentUser.phoneNum}}</p>
+                    <p class="joinDate"><strong>Join Date:</strong> {{formatDate currentUser.joinDate}}</p>
+
+                    {{#if currentUser.isAdmin}}
+                        {{#if currentUser.managedRestaurantName}}
+                            <p class="managed-restaurant">
+                                <strong>Managed Restaurant:</strong> {{currentUser.managedRestaurantName}}
+                            </p>
+                        {{/if}}
+                    {{/if}}
+
+                    <br>
+
+                    <p class="description">
+                        <strong>Description:<br></strong>
+                        {{#if currentUser.description}}
+                            {{currentUser.description}}
+                        {{else}}
+                            No description added yet.
+                        {{/if}}
+                    </p>
                 {{/if}}
 
-                <br>
-                <p class="description">
-                    <strong>Description:<br></strong>
-                    {{#if currentUser.description}}
-                        {{currentUser.description}}
-                    {{else}}
-                        No description added yet.
-                    {{/if}}
-                </p>
             </div>
 
         </div>
@@ -41,6 +78,7 @@
         <div class="profile-actions">
             {{#if showEdit}}
                 <a href="/reviews/my" class="action-btn">My Reviews</a>
+
                 {{#if isUserAdmin}}
                     <a href="/comments/my" class="action-btn">My Comments</a>
                 {{/if}}
@@ -62,7 +100,7 @@
                 {{#if showEdit}}
                     <a href="/reviews/my" class="see-more">See more</a>
                 {{else}}
-                    <a href="/reviews/user/{{currentUser._id}}" class="see-more">See more</a>
+                    <a href="/reviews/user/{{profileUser._id}}" class="see-more">See more</a>
                 {{/if}}
             </div>
 
@@ -71,15 +109,21 @@
                     {{#each userReviews}}
                         <div class="post-card">
                             <p class="review-for">
-                                Review for: <strong class="review-for-resto">{{this.restaurantId.name}}</strong>
+                                Review for: 
+                                <strong class="review-for-resto">
+                                    {{this.restaurantId.name}}
+                                </strong>
                             </p> <br>
 
                             <h4 class="review-title">{{this.title}}</h4>
 
                             <div class="review-meta">
                                 <span class="stars">{{{stars this.rating}}}</span>
+
                                 <small class="review-date">
-                                    {{formatDate this.reviewDate}} at {{formatTime this.reviewDate}}
+                                    {{formatDate this.reviewDate}} 
+                                    at {{formatTime this.reviewDate}}
+
                                     {{#if this.editedAt}}
                                         <span class="edited-label">(edited)</span>
                                     {{/if}}
@@ -92,8 +136,11 @@
                                 <div class="media-container">
                                     {{#each this.media}}
                                         {{#if (eq this.mediaType "image")}}
-                                            <img src="{{this.url}}" alt="Review Image" class="review-media-img">
+                                            <img src="{{this.url}}" 
+                                                 alt="Review Image" 
+                                                 class="review-media-img">
                                         {{/if}}
+
                                         {{#if (eq this.mediaType "video")}}
                                             <video controls class="review-media-video">
                                                 <source src="{{this.url}}" type="video/mp4">
@@ -112,27 +159,31 @@
 
         {{#if showEdit}}
             {{#if isUserAdmin}}
-            <div class="panel">
-                <div class="panel-header">
-                    <h3>Latest Comments</h3>
-                    <a href="/comments/my" class="see-more">See more</a>
-                </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Latest Comments</h3>
+                        <a href="/comments/my" class="see-more">See more</a>
+                    </div>
 
-                <div class="post-list">
-                    {{#if userComments.length}}
-                        {{#each userComments}}
-                            <div class="post-card">
-                                <div class="comment-meta">
-                                    <small>{{formatDate this.commentDate}} at {{formatTime this.commentDate}}</small>
-                                </div> <br>
-                                <p class="comment-text">{{this.text}}</p>
-                            </div>
-                        {{/each}}
-                    {{else}}
-                        <p class="empty-msg">No comments yet.</p>
-                    {{/if}}
+                    <div class="post-list">
+                        {{#if userComments.length}}
+                            {{#each userComments}}
+                                <div class="post-card">
+                                    <div class="comment-meta">
+                                        <small>
+                                            {{formatDate this.commentDate}} 
+                                            at {{formatTime this.commentDate}}
+                                        </small>
+                                    </div> <br>
+
+                                    <p class="comment-text">{{this.text}}</p>
+                                </div>
+                            {{/each}}
+                        {{else}}
+                            <p class="empty-msg">No comments yet.</p>
+                        {{/if}}
+                    </div>
                 </div>
-            </div>
             {{/if}}
         {{/if}}
 
